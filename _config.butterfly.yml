@@ -1,0 +1,7 @@
+# 归档页面生成配置
+archive_generator:
+  per_page: 0 # 0 表示禁用分页，显示所有文章
+  yearly: true
+  monthly: true
+  daily: false
+  order_by: sticky # 默认值，按日期降序

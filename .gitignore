@@ -1,0 +1,14 @@
+public/
+.deploy*/
+node_modules/
+*.log
+debug.log
+.DS_Store
+.env.local
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.tmp/
+.cache/
