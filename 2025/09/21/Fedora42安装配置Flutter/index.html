@@ -1,0 +1,231 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Fedora42安装配置Flutter | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux安装配置Flutter准备工作 创建软件安装目录 1mkdir ~&#x2F;DevTools  安装 Flutter  下载为 Linux 发行版准备的 flutter 压缩包，解压压缩包 将解压之后的目录， 复制到 ~&#x2F;DevTools 目录  1~&#x2F;DevTools&#x2F;flutter_linux_3.32.7-stable  配置 Flutter 环境变量 12echo &#x27;expor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fedora42安装配置Flutter">
+<meta property="og:url" content="https://demodeom.github.io/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux安装配置Flutter准备工作 创建软件安装目录 1mkdir ~&#x2F;DevTools  安装 Flutter  下载为 Linux 发行版准备的 flutter 压缩包，解压压缩包 将解压之后的目录， 复制到 ~&#x2F;DevTools 目录  1~&#x2F;DevTools&#x2F;flutter_linux_3.32.7-stable  配置 Flutter 环境变量 12echo &#x27;expor">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2025/09/20/pV4wFqx.png">
+<meta property="article:published_time" content="2025-09-21T01:05:37.000Z">
+<meta property="article:modified_time" content="2025-09-21T01:08:10.826Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="环境搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2025/09/20/pV4wFqx.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Fedora42安装配置Flutter",
+  "url": "https://demodeom.github.io/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/",
+  "image": "https://s21.ax1x.com/2025/09/20/pV4wFqx.png",
+  "datePublished": "2025-09-21T01:05:37.000Z",
+  "dateModified": "2025-09-21T01:08:10.826Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "https://demodeom.github.io/FlutterNotes"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/FlutterNotes/img/favicon.png"><link rel="canonical" href="https://demodeom.github.io/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/FlutterNotes/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/FlutterNotes/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Fedora42安装配置Flutter',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://s21.ax1x.com/2025/09/20/pV4wFqx.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/FlutterNotes/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/FlutterNotes/"><span class="site-name">Fedora42安装配置Flutter</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Fedora42安装配置Flutter</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-21T01:05:37.000Z" title="发表于 2025-09-21 09:05:37">2025-09-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-21T01:08:10.826Z" title="更新于 2025-09-21 09:08:10">2025-09-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/FlutterNotes/categories/Flutter/">Flutter</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Linux安装配置Flutter"><a href="#Linux安装配置Flutter" class="headerlink" title="Linux安装配置Flutter"></a>Linux安装配置Flutter</h1><p><strong>准备工作</strong></p>
+<p>创建软件安装目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/DevTools</span><br></pre></td></tr></table></figure>
+
+<p><strong>安装 Flutter</strong></p>
+<ol>
+<li>下载为 Linux 发行版准备的 flutter 压缩包，解压压缩包</li>
+<li>将解压之后的目录， 复制到 <code>~/DevTools</code> 目录</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/DevTools/flutter_linux_3.32.7-stable</span><br></pre></td></tr></table></figure>
+
+<p><strong>配置 Flutter 环境变量</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export FLUTTER_HOME=$HOME/DevTools/flutter_linux_3.32.7-stable/flutter&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=$PATH:$FLUTTER_HOME/bin&#x27;</span> &gt;&gt; ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p><strong>生效环境变量配置</strong></p>
+<p>重启系统或者使用以下命令临时生效</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+
+
+<p>使用以下命令诊断当前环境</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>clang++</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">✗ clang++ is required for Linux development.</span><br><span class="line">  It is likely available from your distribution (e.g.: apt install clang), or can be downloaded from https://releases.llvm.org/</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install clang </span><br></pre></td></tr></table></figure>
+
+<p><strong>CMake</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">✗ CMake is required for Linux development.</span><br><span class="line">  It is likely available from your distribution (e.g.: apt install cmake), or can be downloaded from </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install cmake </span><br></pre></td></tr></table></figure>
+
+<p><strong>GTK 3.0</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">✗ GTK 3.0 development libraries are required for Linux development.</span><br><span class="line">  They are likely available from your distribution (e.g.: apt install libgtk-3-dev)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install gtk3-devel </span><br></pre></td></tr></table></figure>
+
+<p><strong>ninja</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">✗ ninja is required for Linux development.</span><br><span class="line">  It is likely available from your distribution (e.g.: apt install ninja-build), or can be downloaded from</span><br><span class="line">  https://github.com/ninja-build/ninja/releases</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install ninja-build</span><br></pre></td></tr></table></figure>
+
+<p><strong>eglinfo</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">! Unable to access driver information using &#x27;eglinfo&#x27;.</span><br><span class="line">  It is likely available from your distribution (e.g.: apt install mesa-utils)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dnf install egl-utils</span><br></pre></td></tr></table></figure>
+
+<p><strong>完整命令</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dnf install clang cmake gtk3-devel egl-utils ninja-build</span><br></pre></td></tr></table></figure>
+
+<p><strong>Android toolchain</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[!] Android toolchain - develop for Android devices (Android SDK version 36.0.0)</span><br><span class="line">    ! Some Android licenses not accepted. To resolve this, run: flutter doctor --android-licenses</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flutter doctor --android-licenses</span><br></pre></td></tr></table></figure>
+
+<p>看到以下提示，输入 <code>y</code>，然后按 <code>Enter</code> 键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Review licenses that have not been accepted (y/N)? </span><br></pre></td></tr></table></figure>
+
+<p>看到以下提示，输入 <code>y</code>，然后按 <code>Enter</code> 键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Accept? (y/N): </span><br></pre></td></tr></table></figure>
+
+<p>无错误输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Doctor summary (to see all details, run flutter doctor -v):</span><br><span class="line">[✓] Flutter (Channel stable, 3.32.7, on Fedora Linux 42 (Workstation Edition) 6.15.9-201.fc42.x86_64, locale en_US.UTF-8)</span><br><span class="line">[✓] Android toolchain - develop for Android devices (Android SDK version 36.0.0)</span><br><span class="line">[✓] Chrome - develop for the web</span><br><span class="line">[✓] Linux toolchain - develop for Linux desktop</span><br><span class="line">[✓] Android Studio (version 2025.1.2)</span><br><span class="line">[✓] Proxy Configuration</span><br><span class="line">[✓] Connected device (2 available)</span><br><span class="line">[✓] Network resources</span><br><span class="line"></span><br><span class="line">• No issues found!</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://demodeom.github.io/FlutterNotes">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://demodeom.github.io/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/">https://demodeom.github.io/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://demodeom.github.io/FlutterNotes" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/FlutterNotes/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a></div><div class="post-share"><div class="social-share" data-image="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/" title="Flutter常用组建列表"><img class="cover" src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="onerror=null;src='/FlutterNotes/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Flutter常用组建列表</div></div><div class="info-2"><div class="info-item-1">  OVERVIEW00:00:00​ Create a project00:02:22 Widget inside Widget00:04:56 Widget vs Argument00:07:12 Types00:09:30 Mouse over 00:12:12: Container00:16:48 Column00:22:10 Row00:25:22 Center00:27:17 Images00:32:06 Extensions (only for VS code)00:33:27 Stack00:35:48 Padding00:36:46 SizedBox00:37:33 Icon00:38:56 ListTile00:40:59 print00:41:47 Wrap 00:43:17 MaterialApp &amp; Scaffold00:47:21 AppBar00:50:05 NavigationBar00:53:53 FloatingActionButton00:56:11 Drawer00:57:53 SafeArea 00:59:49 Type 101:...</div></div></div></a><a class="pagination-related" href="/FlutterNotes/2025/09/20/hello-world/" title="Hello World"><img class="cover" src="https://s21.ax1x.com/2025/09/20/pV4doGQ.png" onerror="onerror=null;src='/FlutterNotes/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Hello World</div></div><div class="info-2"><div class="info-item-1">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.   Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/" title="Flutter常用组建列表"><img class="cover" src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-21</div><div class="info-item-2">Flutter常用组建列表</div></div><div class="info-2"><div class="info-item-1">  OVERVIEW00:00:00​ Create a project00:02:22 Widget inside Widget00:04:56 Widget vs Argument00:07:12 Types00:09:30 Mouse over 00:12:12: Container00:16:48 Column00:22:10 Row00:25:22 Center00:27:17 Images00:32:06 Extensions (only for VS code)00:33:27 Stack00:35:48 Padding00:36:46 SizedBox00:37:33 Icon00:38:56 ListTile00:40:59 print00:41:47 Wrap 00:43:17 MaterialApp &amp; Scaffold00:47:21 AppBar00:50:05 NavigationBar00:53:53 FloatingActionButton00:56:11 Drawer00:57:53 SafeArea 00:59:49 Type 101:...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/FlutterNotes/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/FlutterNotes/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/FlutterNotes/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/FlutterNotes/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter"><span class="toc-number">1.</span> <span class="toc-text">Linux安装配置Flutter</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/21/Dart%E5%8F%98%E6%88%90%E8%AF%AD%E8%A8%80%E4%B8%ADconst%E5%92%8Cfinal%E5%8C%BA%E5%88%AB/" title="Dart变成语言中const和final区别"><img src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Dart变成语言中const和final区别"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/21/Dart%E5%8F%98%E6%88%90%E8%AF%AD%E8%A8%80%E4%B8%ADconst%E5%92%8Cfinal%E5%8C%BA%E5%88%AB/" title="Dart变成语言中const和final区别">Dart变成语言中const和final区别</a><time datetime="2025-09-21T01:24:40.000Z" title="发表于 2025-09-21 09:24:40">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/" title="Flutter常用组建列表"><img src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Flutter常用组建列表"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/" title="Flutter常用组建列表">Flutter常用组建列表</a><time datetime="2025-09-21T01:08:42.000Z" title="发表于 2025-09-21 09:08:42">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/" title="Fedora42安装配置Flutter"><img src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Fedora42安装配置Flutter"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/" title="Fedora42安装配置Flutter">Fedora42安装配置Flutter</a><time datetime="2025-09-21T01:05:37.000Z" title="发表于 2025-09-21 09:05:37">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/20/hello-world/" title="Hello World"><img src="https://s21.ax1x.com/2025/09/20/pV4doGQ.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/20/hello-world/" title="Hello World">Hello World</a><time datetime="2025-09-20T14:25:08.447Z" title="发表于 2025-09-20 22:25:08">2025-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/02/Slider/" title="Slider"><img src="https://s21.ax1x.com/2025/09/20/pV4dT2j.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Slider"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/02/Slider/" title="Slider">Slider</a><time datetime="2025-09-02T06:57:17.000Z" title="发表于 2025-09-02 14:57:17">2025-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By John Doe</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/FlutterNotes/js/utils.js"></script><script src="/FlutterNotes/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

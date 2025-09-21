@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Flutter常用组建列表 | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="OVERVIEW00:00:00​ Create a project00:02:22 Widget inside Widget00:04:56 Widget vs Argument00:07:12 Types00:09:30 Mouse over 00:12:12: Container00:16:48 Column00:22:10 Row00:25:22 Center00:27:17 Imag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter常用组建列表">
+<meta property="og:url" content="https://demodeom.github.io/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="OVERVIEW00:00:00​ Create a project00:02:22 Widget inside Widget00:04:56 Widget vs Argument00:07:12 Types00:09:30 Mouse over 00:12:12: Container00:16:48 Column00:22:10 Row00:25:22 Center00:27:17 Imag">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s21.ax1x.com/2025/09/20/pV4wFqx.png">
+<meta property="article:published_time" content="2025-09-21T01:08:42.000Z">
+<meta property="article:modified_time" content="2025-09-21T01:09:18.711Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="环境搭建">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s21.ax1x.com/2025/09/20/pV4wFqx.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Flutter常用组建列表",
+  "url": "https://demodeom.github.io/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/",
+  "image": "https://s21.ax1x.com/2025/09/20/pV4wFqx.png",
+  "datePublished": "2025-09-21T01:08:42.000Z",
+  "dateModified": "2025-09-21T01:09:18.711Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "https://demodeom.github.io/FlutterNotes"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/FlutterNotes/img/favicon.png"><link rel="canonical" href="https://demodeom.github.io/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/FlutterNotes/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/FlutterNotes/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Flutter常用组建列表',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://s21.ax1x.com/2025/09/20/pV4wFqx.png);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/FlutterNotes/"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/FlutterNotes/"><span class="site-name">Flutter常用组建列表</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Flutter常用组建列表</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-21T01:08:42.000Z" title="发表于 2025-09-21 09:08:42">2025-09-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-21T01:09:18.711Z" title="更新于 2025-09-21 09:09:18">2025-09-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/FlutterNotes/categories/Flutter/">Flutter</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><span id="more"></span>
+
+<p>OVERVIEW<br>00:00:00​ Create a project<br>00:02:22 Widget inside Widget<br>00:04:56 Widget vs Argument<br>00:07:12 Types<br>00:09:30 Mouse over</p>
+<p>00:12:12: Container<br>00:16:48 Column<br>00:22:10 Row<br>00:25:22 Center<br>00:27:17 Images<br>00:32:06 Extensions (only for VS code)<br>00:33:27 Stack<br>00:35:48 Padding<br>00:36:46 SizedBox<br>00:37:33 Icon<br>00:38:56 ListTile<br>00:40:59 print<br>00:41:47 Wrap</p>
+<p>00:43:17 MaterialApp &amp; Scaffold<br>00:47:21 AppBar<br>00:50:05 NavigationBar<br>00:53:53 FloatingActionButton<br>00:56:11 Drawer<br>00:57:53 SafeArea</p>
+<p>00:59:49 Type 1<br>01:01:20 Type 2<br>01:05:26 Null Safety</p>
+<p>01:07:19 Stateful<br>01:11:42 Recap<br>01:17:18 Split your Widgets<br>01:20:30 Widget Tree<br>01:25:12 ValueNotifier<br>01:31:41 Challenge<br>01:34:30 Solution</p>
+<p>01:38:32 TextField<br>01:42:33 Checkbox<br>01:45:09 Arrow function<br>01:46:15 Switch<br>01:47:57 .adaptive<br>01:49:11 Slider<br>01:51:12 SingleChildScrollView<br>01:52:51 GestureDetector<br>01:54:01 InkWell<br>01:55:34 Buttons<br>01:59:07 DropdownButton</p>
+<p>02:02:34 Push<br>02:02:34 Pop<br>02:09:16 PushReplacement<br>02:10:59 Send Data Through pages</p>
+<p>02:13:18 ClipRRect<br>02:17:40 Hero<br>02:22:14 SnackBar<br>02:25:29 Alert<br>02:29:06 Divider<br>02:30:40 Card<br>02:33:36 Text</p>
+<p>02:36:57 Lotties<br>02:43:17 FittedBox<br>02:46:50 UI modification<br>02:54:33 Overrides<br>02:56:49 UI modification<br>03:01:20 UI modification (again)<br>03:06:49 Verify and fix your App<br>03:14:33 UI modification<br>03:18:30 Shared Preferences<br>03:26:33 UI modification<br>03:37:57 UI modification (again)<br>03:43:43 UI modification (again &amp; again)<br>03:55:57 Flutter Launcher Icons<br>04:01:44 CircleAvatar</p>
+<p>04:07:48 FractionallySizedBox<br>04:09:55 LayoutBuilder<br>04:12:41 MediaQuery<br>04:14:42 AspectRatio<br>04:17:40 Expanded &amp; Flexible</p>
+<p>04:26:42 Intro<br>04:29:00 Get<br>04:37:56 Explain<br>04:41:24 Class<br>04:47:07 FutureBuilder<br>04:53:41 AI</p>
+<p>04:58:50 Let’s talk about State Management<br>05:00:59 Internationalizing<br>05:02:12 Firebase<br>05:03:25 Publish<br>05:04:30 Animations<br>05:10:14 The end.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://demodeom.github.io/FlutterNotes">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://demodeom.github.io/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/">https://demodeom.github.io/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://demodeom.github.io/FlutterNotes" target="_blank">Hexo</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/FlutterNotes/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">环境搭建</a></div><div class="post-share"><div class="social-share" data-image="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/FlutterNotes/2025/09/21/Dart%E5%8F%98%E6%88%90%E8%AF%AD%E8%A8%80%E4%B8%ADconst%E5%92%8Cfinal%E5%8C%BA%E5%88%AB/" title="Dart变成语言中const和final区别"><img class="cover" src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="onerror=null;src='/FlutterNotes/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">Dart变成语言中const和final区别</div></div><div class="info-2"><div class="info-item-1">这是一个关于 Dart 语言非常核心且常见的问题。final 和 const 都用于表示不可变的变量（变量只能被赋值一次），但它们在含义和使用上有关键区别。   const 和 final 区别这是一个关于 Dart 语言非常核心且常见的问题。final 和 const 都用于表示不可变的变量（变量只能被赋值一次），但它们在含义和使用上有关键区别。 简单来说，它们的核心区别在于：  const 是编译时常量。 final 是运行时常量。  下面我们通过一个表格和详细解释来深入理解。 核心区别对比表   特性 final const    赋值时机 运行时初始化（可以在声明时赋值，也可以在构造函数中赋值）。 编译时就必须已经确定值。   不可变性 变量本身引用不可变（不能指向新的对象）。 变量本身引用不可变，并且其值必须是编译时常量。   对象内容 final 对象的内容是可以改变的（如果对象本身是可变的）。 const 对象是深度不可变的，整个对象树的所有内容在编译时就必须完全固定。   内存分配 每次使用都会创建一个新的实例。 在内存中只有一个实例（** canonicaliz...</div></div></div></a><a class="pagination-related" href="/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/" title="Fedora42安装配置Flutter"><img class="cover" src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="onerror=null;src='/FlutterNotes/img/404.jpg'" alt="cover of next post"><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Fedora42安装配置Flutter</div></div><div class="info-2"><div class="info-item-1">Linux安装配置Flutter准备工作 创建软件安装目录 1mkdir ~/DevTools  安装 Flutter  下载为 Linux 发行版准备的 flutter 压缩包，解压压缩包 将解压之后的目录， 复制到 ~/DevTools 目录  1~/DevTools/flutter_linux_3.32.7-stable  配置 Flutter 环境变量 12echo &#x27;export FLUTTER_HOME=$HOME/DevTools/flutter_linux_3.32.7-stable/flutter&#x27; &gt;&gt; ~/.zshrcecho &#x27;export PATH=$PATH:$FLUTTER_HOME/bin&#x27; &gt;&gt; ~/.zshrc  生效环境变量配置 重启系统或者使用以下命令临时生效 1source ~/.zshrc    使用以下命令诊断当前环境 1flutter doctor    clang++ 12✗ clang++ is required for Linux development.  It...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/" title="Fedora42安装配置Flutter"><img class="cover" src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" alt="cover"><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-09-21</div><div class="info-item-2">Fedora42安装配置Flutter</div></div><div class="info-2"><div class="info-item-1">Linux安装配置Flutter准备工作 创建软件安装目录 1mkdir ~/DevTools  安装 Flutter  下载为 Linux 发行版准备的 flutter 压缩包，解压压缩包 将解压之后的目录， 复制到 ~/DevTools 目录  1~/DevTools/flutter_linux_3.32.7-stable  配置 Flutter 环境变量 12echo &#x27;export FLUTTER_HOME=$HOME/DevTools/flutter_linux_3.32.7-stable/flutter&#x27; &gt;&gt; ~/.zshrcecho &#x27;export PATH=$PATH:$FLUTTER_HOME/bin&#x27; &gt;&gt; ~/.zshrc  生效环境变量配置 重启系统或者使用以下命令临时生效 1source ~/.zshrc    使用以下命令诊断当前环境 1flutter doctor    clang++ 12✗ clang++ is required for Linux development.  It...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/FlutterNotes/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/FlutterNotes/archives/"><div class="headline">文章</div><div class="length-num">18</div></a><a href="/FlutterNotes/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/FlutterNotes/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/21/Dart%E5%8F%98%E6%88%90%E8%AF%AD%E8%A8%80%E4%B8%ADconst%E5%92%8Cfinal%E5%8C%BA%E5%88%AB/" title="Dart变成语言中const和final区别"><img src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Dart变成语言中const和final区别"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/21/Dart%E5%8F%98%E6%88%90%E8%AF%AD%E8%A8%80%E4%B8%ADconst%E5%92%8Cfinal%E5%8C%BA%E5%88%AB/" title="Dart变成语言中const和final区别">Dart变成语言中const和final区别</a><time datetime="2025-09-21T01:24:40.000Z" title="发表于 2025-09-21 09:24:40">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/" title="Flutter常用组建列表"><img src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Flutter常用组建列表"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/21/Flutter%E5%B8%B8%E7%94%A8%E7%BB%84%E5%BB%BA%E5%88%97%E8%A1%A8/" title="Flutter常用组建列表">Flutter常用组建列表</a><time datetime="2025-09-21T01:08:42.000Z" title="发表于 2025-09-21 09:08:42">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/" title="Fedora42安装配置Flutter"><img src="https://s21.ax1x.com/2025/09/20/pV4wFqx.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Fedora42安装配置Flutter"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/21/Fedora42%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AEFlutter/" title="Fedora42安装配置Flutter">Fedora42安装配置Flutter</a><time datetime="2025-09-21T01:05:37.000Z" title="发表于 2025-09-21 09:05:37">2025-09-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/20/hello-world/" title="Hello World"><img src="https://s21.ax1x.com/2025/09/20/pV4doGQ.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/20/hello-world/" title="Hello World">Hello World</a><time datetime="2025-09-20T14:25:08.447Z" title="发表于 2025-09-20 22:25:08">2025-09-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/FlutterNotes/2025/09/02/Slider/" title="Slider"><img src="https://s21.ax1x.com/2025/09/20/pV4dT2j.png" onerror="this.onerror=null;this.src='/FlutterNotes/img/404.jpg'" alt="Slider"/></a><div class="content"><a class="title" href="/FlutterNotes/2025/09/02/Slider/" title="Slider">Slider</a><time datetime="2025-09-02T06:57:17.000Z" title="发表于 2025-09-02 14:57:17">2025-09-02</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By John Doe</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.0</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/FlutterNotes/js/utils.js"></script><script src="/FlutterNotes/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
